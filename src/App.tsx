@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import Manager from './Manager';
 import {
   Atom,
   ArrowDown,
@@ -87,22 +87,11 @@ const articles = [
 function App() {
   const [page, setPage] = useState<Page>('Home');
   const [menuOpen, setMenuOpen] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loginMessage, setLoginMessage] = useState('');
 
   function navigate(nextPage: Page) {
     setPage(nextPage);
     setMenuOpen(false);
-    setLoginMessage('');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function handleLogin(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setLoginMessage(
-      'The manager login is a demonstration only. Secure authentication must be configured before it can be used.'
-    );
   }
 
   return (
@@ -604,62 +593,7 @@ function App() {
           </section>
         )}
 
-        {page === 'Manager Login' && (
-          <section className="inner-page login-page">
-            <div className="login-card">
-              <span className="login-icon">
-                <ShieldCheck size={30} />
-              </span>
-              <div className="eyebrow">
-                <span className="eyebrow-line" />
-                RESTRICTED ACCESS
-              </div>
-              <h1>
-                Manager
-                <br />
-                <span>sign in.</span>
-              </h1>
-              <p className="inner-lead">
-                This is a visual login demo. A secure authentication service
-                must be connected before it can protect a real manager account.
-              </p>
-              <form onSubmit={handleLogin} className="login-form">
-                <label htmlFor="manager-email">Email address</label>
-                <input
-                  id="manager-email"
-                  type="email"
-                  autoComplete="username"
-                  placeholder="manager@example.com"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  required
-                />
-                <label htmlFor="manager-password">Password</label>
-                <input
-                  id="manager-password"
-                  type="password"
-                  autoComplete="current-password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                  required
-                />
-                <button className="button button-dark login-submit" type="submit">
-                  Sign in <ArrowRight size={17} />
-                </button>
-                {loginMessage && (
-                  <p className="login-message" role="status">
-                    {loginMessage}
-                  </p>
-                )}
-              </form>
-              <p className="login-security-note">
-                Do not enter a real password here. This demo does not
-                authenticate users or store credentials.
-              </p>
-            </div>
-          </section>
-        )}
+        {page === 'Manager Login' && <Manager />}
       </main>
 
       <footer className="site-footer">
