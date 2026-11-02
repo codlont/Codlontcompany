@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import Manager from './Manager';
 import {
@@ -7,6 +8,7 @@ import {
   BrainCircuit,
   CheckCircle2,
   ChevronRight,
+  Code2,
   Cpu,
   FlaskConical,
   Globe2,
@@ -15,18 +17,49 @@ import {
   Microscope,
   ShieldCheck,
   Sparkles,
+  BriefcaseBusiness,
+  Wallet,
   X,
 } from 'lucide-react';
 
-type Page = 'Home' | 'About' | 'Research' | 'Blog' | 'Contact' | 'Manager Login';
+type Page =
+  | 'Home'
+  | 'About'
+  | 'Businesses'
+  | 'Research'
+  | 'Blog'
+  | 'Contact'
+  | 'Manager Login';
 
 const navigation: Page[] = [
   'Home',
   'About',
+  'Businesses',
   'Research',
   'Blog',
   'Contact',
   'Manager Login',
+];
+
+const businesses = [
+  {
+    icon: Globe2,
+    number: '01',
+    name: 'NEARBY',
+    category: 'SOCIAL TECHNOLOGY',
+    description:
+      'A social technology platform designed to bring people closer through communication, location-based connections and digital communities.',
+    status: 'CODLONT PRODUCT',
+  },
+  {
+    icon: Wallet,
+    number: '02',
+    name: 'CODVEST',
+    category: 'FINANCIAL TECHNOLOGY',
+    description:
+      'A financial technology platform focused on developing digital financial tools and services.',
+    status: 'CODLONT PRODUCT',
+  },
 ];
 
 const researchAreas = [
@@ -100,22 +133,23 @@ function App() {
         <button
           className="brand"
           onClick={() => navigate('Home')}
-          aria-label="Codlont home"
+          aria-label="Codlont Group home"
         >
           <span className="brand-mark">
             <Atom size={25} strokeWidth={1.8} />
           </span>
           <span className="brand-name">
             CODLONT<span className="brand-dot">.</span>
-            <small>RESEARCH & INNOVATION</small>
+            <small>TECHNOLOGY & INNOVATION</small>
           </span>
         </button>
 
         <div className="header-right">
           <span className="header-status">
             <span className="status-dot" />
-            CURIOUS MINDS. PRACTICAL IDEAS.
+            BUILDING TECHNOLOGIES. CREATING POSSIBILITIES.
           </span>
+
           <button
             className="menu-toggle"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -128,7 +162,8 @@ function App() {
 
         {menuOpen && (
           <nav className="dropdown-menu" aria-label="Main navigation">
-            <p className="menu-eyebrow">EXPLORE CODLONT</p>
+            <p className="menu-eyebrow">EXPLORE CODLONT GROUP</p>
+
             {navigation.map((item, index) => (
               <button
                 key={item}
@@ -140,7 +175,10 @@ function App() {
                 <ChevronRight size={17} />
               </button>
             ))}
-            <div className="menu-footer">Research. Create. Discover.</div>
+
+            <div className="menu-footer">
+              Technology. Research. Innovation.
+            </div>
           </nav>
         )}
       </header>
@@ -152,26 +190,31 @@ function App() {
               <div className="hero-copy">
                 <div className="eyebrow">
                   <span className="eyebrow-line" />
-                  AN INDEPENDENT RESEARCH INITIATIVE
+                  INTRODUCING CODLONT GROUP
                 </div>
+
                 <h1>
-                  Ideas today.
+                  Building
                   <br />
-                  <span>Innovations</span>
+                  <span>technology.</span>
                   <br />
-                  for tomorrow.
+                  Creating possibilities.
                 </h1>
+
                 <p className="hero-description">
-                  We explore science, research, and emerging technology to
-                  develop creative ideas for a safer and smarter world.
+                  We develop innovative technologies, create digital
+                  platforms and build businesses that shape the future.
+                  Our work connects technology, research and creativity.
                 </p>
+
                 <div className="hero-actions">
                   <button
                     className="button button-dark"
-                    onClick={() => navigate('Research')}
+                    onClick={() => navigate('Businesses')}
                   >
-                    Explore our research <ArrowRight size={17} />
+                    Explore our businesses <ArrowRight size={17} />
                   </button>
+
                   <button
                     className="button button-light"
                     onClick={() => navigate('About')}
@@ -179,61 +222,70 @@ function App() {
                     Discover Codlont
                   </button>
                 </div>
+
                 <div className="hero-note">
                   <span className="note-icon">
                     <Sparkles size={16} />
                   </span>
-                  Driven by curiosity. Built around possibilities.
+                  Driven by innovation. Built around possibilities.
                 </div>
               </div>
 
-              <div className="hero-visual" aria-label="Abstract scientific illustration">
+              <div
+                className="hero-visual"
+                aria-label="Abstract scientific illustration"
+              >
                 <div className="visual-glow" />
                 <div className="orbit orbit-one" />
                 <div className="orbit orbit-two" />
                 <div className="orbit orbit-three" />
+
                 <div className="science-core">
                   <Atom size={112} strokeWidth={0.85} />
                 </div>
+
                 <div className="floating-card floating-card-top">
                   <span className="floating-icon purple">
+                    <Code2 size={19} />
+                  </span>
+                  <span>
+                    <strong>Technology</strong>
+                    <small>Building digital solutions</small>
+                  </span>
+                </div>
+
+                <div className="floating-card floating-card-bottom">
+                  <span className="floating-icon green">
                     <FlaskConical size={19} />
                   </span>
                   <span>
-                    <strong>Research</strong>
-                    <small>Explore the unknown</small>
+                    <strong>Innovation</strong>
+                    <small>Exploring new possibilities</small>
                   </span>
                 </div>
-                <div className="floating-card floating-card-bottom">
-                  <span className="floating-icon green">
-                    <ShieldCheck size={19} />
-                  </span>
-                  <span>
-                    <strong>Real-world impact</strong>
-                    <small>Ideas with purpose</small>
-                  </span>
-                </div>
+
                 <div className="visual-caption">
-                  <span>01 / THE POSSIBLE</span>
-                  <span>SCIENCE × CREATIVITY</span>
+                  <span>01 / THE FUTURE</span>
+                  <span>SCIENCE × TECHNOLOGY</span>
                 </div>
+
                 <span className="visual-plus plus-one">+</span>
                 <span className="visual-plus plus-two">+</span>
               </div>
 
               <div className="hero-bottom">
-                <span>INQUISITIVE BY NATURE</span>
+                <span>INNOVATION BY DESIGN</span>
                 <ArrowDown size={16} />
                 <span>SCROLL TO EXPLORE</span>
               </div>
             </section>
 
             <section className="intro-strip">
-              <div className="intro-label">OUR PURPOSE</div>
+              <div className="intro-label">WHO WE ARE</div>
               <p>
-                Good questions lead to better discoveries. We bring research,
-                creative thinking, and technology together to explore what is
-                possible.
+                Codlont Group is a technology and innovation company
+                focused on creating digital products, developing
+                new technologies and building sustainable businesses.
               </p>
               <div className="intro-symbol">
                 <Globe2 size={31} strokeWidth={1.2} />
@@ -245,43 +297,55 @@ function App() {
                 <div>
                   <div className="eyebrow">
                     <span className="eyebrow-line" />
-                    WHAT WE EXPLORE
+                    OUR BUSINESS PORTFOLIO
                   </div>
                   <h2>
-                    Curiosity is our
+                    Ideas transformed
                     <br />
-                    <span>starting point.</span>
+                    <span>into businesses.</span>
                   </h2>
                 </div>
+
                 <p>
-                  From early research to technology concepts, our interests
-                  connect scientific thinking with meaningful challenges.
+                  We develop and manage technology products designed
+                  to address real-world needs and create new opportunities.
                 </p>
               </div>
 
               <div className="research-grid">
-                {researchAreas.map((area) => {
-                  const Icon = area.icon;
+                {businesses.map((business) => {
+                  const Icon = business.icon;
+
                   return (
-                    <article className="research-card" key={area.number}>
+                    <article className="research-card" key={business.number}>
                       <div className="research-card-top">
                         <span className="research-icon">
                           <Icon size={25} strokeWidth={1.6} />
                         </span>
-                        <span className="card-number">{area.number}</span>
+                        <span className="card-number">{business.number}</span>
                       </div>
-                      <h3>{area.title}</h3>
-                      <p>{area.description}</p>
-                      <button
-                        className="text-link"
-                        onClick={() => navigate('Research')}
-                      >
-                        Learn more <ArrowRight size={15} />
-                      </button>
+
+                      <span className="article-category">
+                        {business.category}
+                      </span>
+
+                      <h3>{business.name}</h3>
+                      <p>{business.description}</p>
+
+                      <span className="article-date">
+                        {business.status}
+                      </span>
                     </article>
                   );
                 })}
               </div>
+
+              <button
+                className="button button-dark"
+                onClick={() => navigate('Businesses')}
+              >
+                Discover our businesses <ArrowRight size={17} />
+              </button>
             </section>
 
             <section className="feature-section">
@@ -289,28 +353,35 @@ function App() {
                 <div className="feature-art-ring ring-a" />
                 <div className="feature-art-ring ring-b" />
                 <div className="feature-art-ring ring-c" />
+
                 <div className="feature-art-center">
                   <BrainCircuit size={82} strokeWidth={1.1} />
                 </div>
+
                 <span className="feature-chip chip-a">IDEAS</span>
                 <span className="feature-chip chip-b">RESEARCH</span>
                 <span className="feature-chip chip-c">DISCOVERY</span>
               </div>
+
               <div className="feature-copy">
                 <div className="eyebrow">
                   <span className="eyebrow-line" />
-                  HOW WE THINK
+                  RESEARCH & DEVELOPMENT
                 </div>
+
                 <h2>
                   Big questions.
                   <br />
                   <span>Thoughtful answers.</span>
                 </h2>
+
                 <p>
-                  Innovation is more than a finished product. It begins with
-                  understanding a problem, investigating the evidence, testing
-                  possibilities, and learning from every result.
+                  We believe meaningful innovation begins with
+                  understanding problems, investigating possibilities
+                  and developing practical solutions. Research and
+                  experimentation remain central to our approach.
                 </p>
+
                 <ul className="principle-list">
                   <li>
                     <CheckCircle2 size={19} />
@@ -318,18 +389,19 @@ function App() {
                   </li>
                   <li>
                     <CheckCircle2 size={19} />
-                    <span>Experimentation with purpose</span>
+                    <span>Technology with purpose</span>
                   </li>
                   <li>
                     <CheckCircle2 size={19} />
-                    <span>Practical thinking and continuous learning</span>
+                    <span>Continuous innovation and learning</span>
                   </li>
                 </ul>
+
                 <button
                   className="button button-dark"
-                  onClick={() => navigate('About')}
+                  onClick={() => navigate('Research')}
                 >
-                  Get to know us <ArrowRight size={17} />
+                  Explore our research <ArrowRight size={17} />
                 </button>
               </div>
             </section>
@@ -341,19 +413,22 @@ function App() {
                     <span className="eyebrow-line" />
                     IDEAS IN PROGRESS
                   </div>
+
                   <h2>
-                    Notes from the
+                    Research, ideas
                     <br />
-                    <span>world of discovery.</span>
+                    <span>and discoveries.</span>
                   </h2>
                 </div>
+
                 <button
                   className="button button-light"
                   onClick={() => navigate('Blog')}
                 >
-                  Visit the journal <ArrowRight size={16} />
+                  Visit our journal <ArrowRight size={16} />
                 </button>
               </div>
+
               <div className="article-grid">
                 {articles.map((article, index) => (
                   <article className="article-card" key={article.title}>
@@ -361,14 +436,19 @@ function App() {
                       {index === 0 && <Microscope size={48} />}
                       {index === 1 && <Cpu size={48} />}
                       {index === 2 && <Atom size={48} />}
+
                       <span className="article-art-number">
                         0{index + 1}
                       </span>
                     </div>
+
                     <div className="article-content">
-                      <span className="article-category">{article.category}</span>
+                      <span className="article-category">
+                        {article.category}
+                      </span>
                       <h3>{article.title}</h3>
                       <p>{article.description}</p>
+
                       <button
                         className="text-link"
                         onClick={() => navigate('Blog')}
@@ -385,11 +465,18 @@ function App() {
               <div className="banner-icon">
                 <Mail size={27} />
               </div>
+
               <div>
-                <div className="eyebrow">HAVE A QUESTION OR AN IDEA?</div>
-                <h2>Let's start a conversation.</h2>
-                <p>We welcome thoughtful questions, research ideas, and enquiries.</p>
+                <div className="eyebrow">
+                  HAVE A QUESTION OR BUSINESS IDEA?
+                </div>
+                <h2>Let's build something meaningful.</h2>
+                <p>
+                  Contact Codlont for enquiries, support and business
+                  partnerships.
+                </p>
               </div>
+
               <button
                 className="button button-white"
                 onClick={() => navigate('Contact')}
@@ -404,50 +491,119 @@ function App() {
           <section className="inner-page">
             <div className="eyebrow">
               <span className="eyebrow-line" />
-              WHO WE ARE
+              ABOUT CODLONT GROUP
             </div>
+
             <h1>
-              A curious mind.
+              Building technology.
               <br />
-              <span>A world of possibilities.</span>
+              <span>Creating possibilities.</span>
             </h1>
+
             <p className="inner-lead">
-              Codlont is a research and innovation initiative focused on
-              exploring scientific ideas and developing technology concepts
-              with practical value.
+              Codlont Group is a technology and innovation company
+              focused on developing digital platforms, researching
+              new technologies and building businesses with
+              long-term potential.
             </p>
+
             <div className="inner-feature-grid">
               <article className="inner-feature">
                 <Atom size={32} />
                 <h3>Our mission</h3>
                 <p>
-                  To investigate useful ideas and explore how science and
-                  technology can help address real-world challenges.
+                  To create useful technologies and innovative
+                  businesses that address real-world challenges.
                 </p>
               </article>
+
               <article className="inner-feature">
                 <Globe2 size={32} />
                 <h3>Our vision</h3>
                 <p>
-                  A future where curiosity, thoughtful research, and responsible
-                  innovation help people make progress.
+                  To become an internationally recognised technology
+                  group with products and businesses serving people
+                  around the world.
                 </p>
               </article>
+
               <article className="inner-feature">
                 <FlaskConical size={32} />
                 <h3>Our approach</h3>
                 <p>
-                  Ask questions, investigate carefully, test ideas, and keep
-                  learning as concepts develop.
+                  Research carefully, develop responsibly, test
+                  thoroughly and continuously improve.
                 </p>
               </article>
             </div>
+
             <button
               className="button button-dark"
-              onClick={() => navigate('Research')}
+              onClick={() => navigate('Businesses')}
             >
-              Explore our research <ArrowRight size={17} />
+              Explore our businesses <ArrowRight size={17} />
             </button>
+          </section>
+        )}
+
+        {page === 'Businesses' && (
+          <section className="inner-page">
+            <div className="eyebrow">
+              <span className="eyebrow-line" />
+              OUR BUSINESSES & PRODUCTS
+            </div>
+
+            <h1>
+              Creating products.
+              <br />
+              <span>Building businesses.</span>
+            </h1>
+
+            <p className="inner-lead">
+              Codlont develops and owns technology products designed
+              to connect people, create opportunities and deliver
+              useful digital services.
+            </p>
+
+            <div className="research-grid inner-research-grid">
+              {businesses.map((business) => {
+                const Icon = business.icon;
+
+                return (
+                  <article className="research-card" key={business.number}>
+                    <div className="research-card-top">
+                      <span className="research-icon">
+                        <Icon size={27} />
+                      </span>
+                      <span className="card-number">{business.number}</span>
+                    </div>
+
+                    <span className="article-category">
+                      {business.category}
+                    </span>
+
+                    <h3>{business.name}</h3>
+                    <p>{business.description}</p>
+
+                    <span className="article-date">
+                      {business.status}
+                    </span>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className="research-note">
+              <BriefcaseBusiness size={24} />
+              <div>
+                <h3>More businesses are part of our vision</h3>
+                <p>
+                  Codlont plans to expand its portfolio through
+                  technology development, research, innovation
+                  and future business ventures.
+                </p>
+              </div>
+            </div>
           </section>
         )}
 
@@ -457,20 +613,24 @@ function App() {
               <span className="eyebrow-line" />
               RESEARCH & DEVELOPMENT
             </div>
+
             <h1>
               Exploring ideas.
               <br />
               <span>Creating possibilities.</span>
             </h1>
+
             <p className="inner-lead">
-              Our areas of interest bring scientific curiosity together with
-              engineering, software, and safety-focused technology concepts.
-              These are focus areas, not a claim that every concept is already
-              a finished or commercially available product.
+              Our areas of interest bring scientific curiosity
+              together with engineering, software and technology
+              concepts. These are focus areas, not a claim that
+              every concept is already a finished product.
             </p>
+
             <div className="research-grid inner-research-grid">
               {researchAreas.map((area) => {
                 const Icon = area.icon;
+
                 return (
                   <article className="research-card" key={area.number}>
                     <div className="research-card-top">
@@ -479,19 +639,21 @@ function App() {
                       </span>
                       <span className="card-number">{area.number}</span>
                     </div>
+
                     <h3>{area.title}</h3>
                     <p>{area.description}</p>
                   </article>
                 );
               })}
             </div>
+
             <div className="research-note">
               <ShieldCheck size={24} />
               <div>
                 <h3>Research with responsibility</h3>
                 <p>
                   Safety-related concepts require appropriate testing,
-                  independent validation, and clear communication of
+                  independent validation and clear communication of
                   limitations before real-world use.
                 </p>
               </div>
@@ -505,15 +667,18 @@ function App() {
               <span className="eyebrow-line" />
               THE CODLONT JOURNAL
             </div>
+
             <h1>
               Ideas worth
               <br />
               <span>exploring.</span>
             </h1>
+
             <p className="inner-lead">
-              Notes on science, engineering, research methods, and the process
-              of turning questions into useful concepts.
+              Updates and insights on technology, engineering,
+              innovation, research and the development of our products.
             </p>
+
             <div className="article-grid inner-article-grid">
               {articles.map((article, index) => (
                 <article className="article-card" key={article.title}>
@@ -521,10 +686,16 @@ function App() {
                     {index === 0 && <Microscope size={48} />}
                     {index === 1 && <Cpu size={48} />}
                     {index === 2 && <Atom size={48} />}
-                    <span className="article-art-number">0{index + 1}</span>
+
+                    <span className="article-art-number">
+                      0{index + 1}
+                    </span>
                   </div>
+
                   <div className="article-content">
-                    <span className="article-category">{article.category}</span>
+                    <span className="article-category">
+                      {article.category}
+                    </span>
                     <h3>{article.title}</h3>
                     <p>{article.description}</p>
                     <span className="article-date">{article.date}</span>
@@ -532,9 +703,10 @@ function App() {
                 </article>
               ))}
             </div>
+
             <p className="journal-disclaimer">
-              These are introductory journal topics. Full articles can be
-              published here as your research and writing develop.
+              These are introductory journal topics. Full articles
+              can be published as our research and writing develop.
             </p>
           </section>
         )}
@@ -543,51 +715,65 @@ function App() {
           <section className="inner-page contact-page">
             <div className="eyebrow">
               <span className="eyebrow-line" />
-              GET IN TOUCH
+              CONTACT CODLONT GROUP
             </div>
+
             <h1>
-              Every good idea
+              Let's start
               <br />
-              <span>starts somewhere.</span>
+              <span>a conversation.</span>
             </h1>
+
             <p className="inner-lead">
-              Have a question, a research suggestion, or an idea you would like
-              to discuss? We would be glad to hear from you.
+              Whether you have a general enquiry, need assistance
+              or want to explore a business partnership, we would
+              be glad to hear from you.
             </p>
+
             <div className="contact-method-card">
               <span className="contact-method-icon">
                 <Mail size={27} />
               </span>
               <div>
-                <h3>Email Codlont</h3>
+                <h3>General enquiries</h3>
                 <p>
-                  Replace the placeholder address below with your official
-                  company email before publishing.
+                  For general information and questions about
+                  Codlont Group.
                 </p>
-                <a href="mailto:YOUR_EMAIL@example.com">
-                  YOUR_EMAIL@example.com <ArrowRight size={15} />
+                <a href="mailto:info@codlont.com">
+                  info@codlont.com <ArrowRight size={15} />
                 </a>
               </div>
             </div>
+
             <div className="contact-method-card">
               <span className="contact-method-icon">
                 <Sparkles size={27} />
               </span>
               <div>
-                <h3>Email support</h3>
+                <h3>Customer support</h3>
                 <p>
-                  Our contact link opens your email application so you can send
-                  your enquiry. Automated replies and live chat are not
-                  configured yet.
+                  For assistance with Codlont products and services.
                 </p>
-                <button
-                  className="text-link"
-                  onClick={() => {
-                    window.location.href = 'mailto:YOUR_EMAIL@example.com';
-                  }}
-                >
-                  Start an email <ArrowRight size={15} />
-                </button>
+                <a href="mailto:support@codlont.com">
+                  support@codlont.com <ArrowRight size={15} />
+                </a>
+              </div>
+            </div>
+
+            <div className="contact-method-card">
+              <span className="contact-method-icon">
+                <BriefcaseBusiness size={27} />
+              </span>
+              <div>
+                <h3>Business partnerships</h3>
+                <p>
+                  For collaborations, business opportunities,
+                  partnerships and commercial enquiries.
+                </p>
+                <a href="mailto:partnerships@codlont.com">
+                  partnerships@codlont.com <ArrowRight size={15} />
+                </a>
               </div>
             </div>
           </section>
@@ -597,7 +783,10 @@ function App() {
       </main>
 
       <footer className="site-footer">
-        <button className="footer-brand" onClick={() => navigate('Home')}>
+        <button
+          className="footer-brand"
+          onClick={() => navigate('Home')}
+        >
           <span className="brand-mark">
             <Atom size={23} />
           </span>
@@ -605,17 +794,36 @@ function App() {
             CODLONT<span className="brand-dot">.</span>
           </span>
         </button>
-        <p>Researching ideas. Exploring technology. Creating possibilities.</p>
+
+        <p>
+          Building technologies. Creating possibilities.
+        </p>
+
         <div className="footer-links">
-          {(['About', 'Research', 'Blog', 'Contact'] as Page[]).map((item) => (
+          {(
+            ['About', 'Businesses', 'Research', 'Blog', 'Contact'] as Page[]
+          ).map((item) => (
             <button key={item} onClick={() => navigate(item)}>
               {item}
             </button>
           ))}
         </div>
+
+        <div className="footer-links">
+          <a href="mailto:info@codlont.com">General enquiries</a>
+          <a href="mailto:support@codlont.com">Customer support</a>
+          <a href="mailto:partnerships@codlont.com">
+            Partnerships
+          </a>
+        </div>
+
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} Codlont. All rights reserved.</span>
-          <span>BUILT ON CURIOSITY <span className="footer-star">✳</span></span>
+          <span>
+            © {new Date().getFullYear()} Codlont Group. All rights reserved.
+          </span>
+          <span>
+            BUILT ON INNOVATION <span className="footer-star">✳</span>
+          </span>
         </div>
       </footer>
     </div>
