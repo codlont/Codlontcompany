@@ -1367,7 +1367,7 @@ export default function Manager() {
                     </p>
                   )}
                 </div>
-              )}
+              ))}
             </div>
 
             <div style={styles.card}>
